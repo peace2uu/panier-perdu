@@ -1,5 +1,17 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Fraunces, Inter } from "next/font/google";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  weight: ["700", "900"],
+});
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["500"],
+});
 
 export const metadata: Metadata = {
   title: "Panier Perdu : récupère tes paniers abandonnés",
@@ -13,8 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
-      <body className="bg-stone-50 text-stone-900 antialiased">{children}</body>
+    <html lang="fr" className={`${fraunces.variable} ${inter.variable}`}>
+      <body className="bg-[#faf6ee] font-[family-name:var(--font-inter)] text-stone-800 antialiased">
+        {children}
+      </body>
     </html>
   );
 }
